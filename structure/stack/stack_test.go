@@ -27,19 +27,19 @@ func Test_Stack(t *testing.T) {
 	// Verify that the length of the stack is 3
 	assert.Equal(t, 3, s.Len(), "expected stack length to be 3")
 
-	// Verify that Peek() returns the top itemsent of the stack
+	// Verify that Peek() returns the top item of the stack
 	assert.Equal(t, 3, s.Peek(), "expected Peek() to return 3")
 
-	// Verify that PushN() adds multiple itemsents to the stack
+	// Verify that PushN() adds multiple items to the stack
 	s.PushN([]int{4, 5, 6})
 	assert.Equal(t, 6, s.Len(), "expected stack length to be 6 after PushN()")
 
-	// Verify that Pop() removes and returns the top itemsent of the stack
+	// Verify that Pop() removes and returns the top item of the stack
 	item := s.Pop()
 	assert.Equal(t, 6, item, "expected Pop() to return 6")
 	assert.Equal(t, 5, s.Len(), "expected stack length to be 5 after Pop()")
 
-	// Verify that PopN() removes and returns multiple itemsents from the stack
+	// Verify that PopN() removes and returns multiple items from the stack
 	items, err := s.PopN(3)
 	assert.Nil(t, err, "expected PopN() to return itemsents from the stack")
 	assert.Len(t, items, 3, "expected PopN() to return 3 itemsents")

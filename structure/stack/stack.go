@@ -2,23 +2,13 @@ package stack
 
 import "fmt"
 
-// Stack is a generic stack of times of any time T
+// Stack is a generic stack of that is LIFO or FILO
 //
 //	Usage:
 //	s := Stack([]int{1,2,3})
 //	s := NewStack[int]()
 type Stack[T any] struct {
 	items []T
-}
-
-// IsEmpty checks to see if the stack is empty
-func (s *Stack[T]) IsEmpty() bool {
-	return len(s.items) == 0
-}
-
-// Len returns the length of the stack
-func (s *Stack[T]) Len() int {
-	return len(s.items)
 }
 
 // NewStack creates a new empty stack
@@ -29,6 +19,16 @@ func NewStack[T any]() *Stack[T] {
 	return &Stack[T]{
 		items: []T{},
 	}
+}
+
+// IsEmpty checks to see if the stack is empty
+func (s *Stack[T]) IsEmpty() bool {
+	return len(s.items) == 0
+}
+
+// Len returns the length of the stack
+func (s *Stack[T]) Len() int {
+	return len(s.items)
 }
 
 // Peek looks at the item at the top of the stack. Returns nil if empty.
